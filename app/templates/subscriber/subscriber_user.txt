@@ -1,1 +1,2 @@
-Hello {{subscriber.name}}
+Hello {{user.username}}
+Welcome to our Blog
