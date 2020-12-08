@@ -3,23 +3,40 @@
 {% import 'macros.html' as macro %}
 {% import 'bootstrap/wtf.html' as wtf %}
 
-
+{% block styles%}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+<script src="https://kit.fontawesome.com/83d474e45f.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Padauk&family=Parisienne&family=Poiret+One&family=Raleway:wght@100&display=swap" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ quotes.author }}</h5>
- 
-          <p class="card-text">{{ quotes.quote }}</p>
-          
+<div style="background-image: linear-gradient(rgba(240, 240, 240, 0.027),rgba(248, 248, 248, 0)),url('https://res.cloudinary.com/auca/image/upload/v1607423319/chrismas_h9yj0l.png');background-size: cover; height: 80vh; background-position: center;margin-top: -0.55cm;">
+  
+    <div class="card" style=" text-align:center; margin: auto; padding-top: 150px; width: 50%; font-size: 2rem;">
+        <div class="card p-5">
+        <h1><i class="fa fa-snowflake-o" style="color: white;" aria-hidden="true"></i> <strong><span style="color: white;">DAY </span> <span style="color: #3A4B33;">QUOTE</span></strong> <i class="fa fa-snowflake-o" aria-hidden="true" style="color: #3A4B33;"></i> </h1>
+       
+ <hr style="border: 2px solid white;">
+ <br>
+          <p class="card-text" style="font-family: 'Parisienne', cursive; font-size: 2.3rem;">"{{ quotes.quote }}"</p>
+          <h5 class="card-title"><strong>~~{{ quotes.author }}</strong></h5>
+          <hr style="border: 2px solid white;">
         </div>
       </div>
+    </div>
  
       <div class="container-fluid">
 
         <div class="card-text">
-    
+             <h1 style=" text-align:center; padding-top:100px; font-family: 'Poiret One', cursive;" ><Strong>POSTS</Strong> </h1>
+             <br>
+             <br>
             <div class="tab-content">
                 <div class="container tab-pane active"><br>
                     {{ macro.displayBlog(blogs)}}
@@ -29,7 +46,28 @@
             <br>
         </div>
     
-       
+        <div class="jumbotron"
+        style="background-image:linear-gradient(rgba(197, 195, 195, 0), rgba(158, 155, 155, 0)), url('https://res.cloudinary.com/auca/image/upload/v1607433053/santa_hyqqqy.png');background-size: cover; height: 90vh; background-position: center;">
+        <div class="container-fluid">
+          <form class="form-inline ml-4" action="" method="POST" style="text-align:right; padding-top: 120px;">
+            <h2> <i class="fa fa-snowflake-o" aria-hidden="true" style="color: #3A4B33;"></i> SUBSCRIBE FOR MORE INSIGHTS</h2>
+            <div class="form-group"  style="padding-top: 30px;">
+               
+                  <label class="text-light">Your Email</label>
+                  <input type="email" class="form-control " name="subscriber" required>
+              </div>
+              <br>
+              <div  class="md-form form-group" style=" padding-top: 10px;">
+
+             
+                  <button class="btn btn-sm" style="background-color: #39662c; color: white;">Subscribe here</button>
+                </div>
+          </form>
+        </div>
+        
+
+    </div>
+</div>
     
 
 {% endblock %}
