@@ -3,13 +3,13 @@
 
 {% block content %}
 
-<div class="container-fluid">
+<div class="container-fluid" style="background-image: linear-gradient(rgba(240, 240, 240, 0.027),rgba(248, 248, 248, 0)),url('https://res.cloudinary.com/auca/image/upload/v1607429251/cookies_qyyv83.png');background-size: cover; height: 90vh; background-position: center;margin-top: -0.55cm;">
     <div class="row">
         <div class="col-md-2"> </div>
         <div class="col-md-8">
             <h3
-                style="font-weight: bold;font-size: 50px;margin-top: 80px;letter-spacing:2px;font-family: 'Times New Roman', Times, serif; color: black;text-align: center;">
-                Create A Post</h3>
+                style="font-weight: bold;font-size: 50px;margin-top: 80px; color: white;text-align: center;">
+                Create a Post</h3>
             <br>
             <div style="color: white; background-color: transparent;">
                 {{wtf.quick_form(form)}}
