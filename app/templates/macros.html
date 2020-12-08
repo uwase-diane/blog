@@ -6,22 +6,25 @@
     <div class="row">
 
         {% for post in blogs %}
-
-        <div class="col-md-4">
+    
+        <div class="card col-md-4" style="text-align: center;">
             <div class="thumbnail">
                 <div class="card-body">
-                    <h4 class="card-title">
-                        {{post.title}}</h4>
-                    <p class="card-title">
-                        {{post.description}}</p>
+                    <h4 class="card-title" style="color: #344e29;">
+
+                       <i class="fa fa-snowflake-o" aria-hidden="true" ></i> <strong>{{post.title}} <i class="fa fa-snowflake-o" aria-hidden="true"> </i></strong></h4>
+                    <p class="card-text" style="font-family: 'Padauk', sans-serif; font-size: 2rem;">
+                        "{{post.description}}"</p>
+                        <p class="card-text" style="font-family: 'Raleway', sans-serif; font-weight: bold; color: #344e29;">
+                            Posted by : {{post.user.username}}
                     <div style="margin-bottom: 5px;">
                         <span class="foot"><a href="{{url_for('main.comment',blog_id = post.id)}}"
-                            class="btn btn-outline-info btn-sm" >Comment</a></span>
+                            class="btn btn-success btn-sm" >Comment</a></span>
                         <span class="foot"><a
                                 href="{{url_for('main.update_blog',id = post.id)}}"
-                                class="btn btn-outline-warning btn-sm">Update</a></span> &nbsp;
+                                class="btn btn-success btn-sm">Update</a></span> &nbsp;
                         <span class="foot"><a href="{{url_for('main.delete',id = post.id)}}"
-                                class="btn btn-outline-danger btn-sm" >Delete</a></span>
+                                class="btn btn-success btn-sm" >Delete</a></span>
                        
                     </div>
                 </div>
