@@ -6,9 +6,9 @@ from app.models import User
 
 
 app = create_app('development')
-
+# app = create_app('production')
 manager = Manager(app)
-
+app = create_app('test')
 
 migrate = Migrate(app,db)
 manager.add_command('db',MigrateCommand)
