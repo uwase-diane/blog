@@ -10,56 +10,46 @@
 <div class="col-md-4">
   {% if user.profile_pic_path %}
 
-  <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail" style="width: 450px;height: 400px;">
-
+  <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail" style="width: 200px;height: 200px;">
+  
   {%else%}
   <p>No profile picture</p>
+  
 
   {% endif %}
 
       {% if user == current_user %}
-  <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+  <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data" style="width: 150px;">
 
     <input type="file"  name="photo" class="form-control" required>
+    <br>
     <input type="submit" class="btn btn-info btn-sm">
   </form>
     {% endif %}
 </div>
-<div class="col-md-2">
-  <div>
-      <h3>
-          <p>
-              Name:</span>
-          <ul>{{user.username| capitalize}}
-              </ul>
-      </h3>
-      <br>
-      <br>
-      <hr style="border: 1px solid black;">
-      <br>
-      <!--Displaying user bio-->
-      {% if user.bio %}
-      <p>Bio:
-          </span>
-      <ul>
-              {{user.bio}}</span></ul>
-      </p>
+
+
+<div class="col-md-6"> 
+    <hr style="border: 1px solid rgb(141, 136, 136);">
+
+    <p>Name:{{user.username| capitalize}} </p>
+        {% if user.bio %}
+  
+          
+      <p>Bio: {{user.bio}}</p>
+
       {%else%}
       <p> {{user.username| capitalize}} has no bio </p>
       {% endif %}
 
-  </div>
-  {% if user == current_user %}
-  <a class="btn btn-primary"
-      href="{{url_for('main.update_profile',uname=user.username)}}">Edit bio</a>
-  {% endif %}
-</div>
-
-<div class="col-md-6">
   {% if current_user %}
       <span>{{user.blogs.count()}} </span>BLOG POSTS</h3>
-
-  <hr style="border: 1px solid black;">
+      {% if user == current_user %}
+<br>
+<br>
+      <a class="btn btn-primary" href="{{url_for('main.update_profile',uname=user.username)}}">Edit bio</a>
+      {% endif %}
+  <hr style="border: 1px solid rgb(141, 136, 136);">
   <br>
   {% for i in blogs %}
   <div class="col-md-4">
