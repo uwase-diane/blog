@@ -1,0 +1,33 @@
+{% macro displayBlog(blogs) %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+<div class="container">
+
+    <div class="row">
+
+        {% for post in blogs %}
+
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {{post.title}}</h4>
+                    <p class="card-title">
+                        {{post.description}}</p>
+                    <div style="margin-bottom: 5px;">
+                        <span class="foot"><a href="{{url_for('main.comment',blog_id = post.id)}}"
+                            class="btn btn-outline-info btn-sm" >Comment</a></span>
+                        <span class="foot"><a
+                                href="{{url_for('main.update_blog',id = post.id)}}"
+                                class="btn btn-outline-warning btn-sm">Update</a></span> &nbsp;
+                        <span class="foot"><a href="{{url_for('main.delete',id = post.id)}}"
+                                class="btn btn-outline-danger btn-sm" >Delete</a></span>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endmacro %}

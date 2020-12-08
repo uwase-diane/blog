@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+
+
+{% block content %}
+
+
+<div class="container-fluid">
+  <div class=" row">
+
+<div class="col-md-4">
+  {% if user.profile_pic_path %}
+
+  <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail" style="width: 450px;height: 400px;">
+
+  {%else%}
+  <p>No profile picture</p>
+
+  {% endif %}
+
+      {% if user == current_user %}
+  <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+
+    <input type="file"  name="photo" class="form-control" required>
+    <input type="submit" class="btn btn-info btn-sm">
+  </form>
+    {% endif %}
+</div>
+<div class="col-md-2">
+  <div>
+      <h3>
+          <p>
+              Name:</span>
+          <ul>{{user.username| capitalize}}
+              </ul>
+      </h3>
+      <br>
+      <br>
+      <hr style="border: 1px solid black;">
+      <br>
+      <!--Displaying user bio-->
+      {% if user.bio %}
+      <p>Bio:
+          </span>
+      <ul>
+              {{user.bio}}</span></ul>
+      </p>
+      {%else%}
+      <p> {{user.username| capitalize}} has no bio </p>
+      {% endif %}
+
+  </div>
+  {% if user == current_user %}
+  <a class="btn btn-primary"
+      href="{{url_for('main.update_profile',uname=user.username)}}">Edit bio</a>
+  {% endif %}
+</div>
+
+<div class="col-md-6">
+  {% if current_user %}
+      <span>{{user.blogs.count()}} </span>BLOG POSTS</h3>
+
+  <hr style="border: 1px solid black;">
+  <br>
+  {% for i in blogs %}
+  <div class="col-md-4">
+      <div class="thumbnail">
+          <div class="card-body">
+              <p><img src="{{i.image}}" width="175" height="120"></p>
+              <h4>
+                  {{i.title | capitalize}}</h4>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+  {% else%}
+  <h4>you have 0 blog</h4>
+  {% endif %}
+
+</div>
+</div>
+    {% endblock %}

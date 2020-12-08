@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+
+{% block content %}
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ quotes.author }}</h5>
+ 
+          <p class="card-text">{{ quotes.quote }}</p>
+          
+        </div>
+      </div>
+ 
+      <div class="container-fluid">
+
+        <div class="card-text">
+    
+            <div class="tab-content">
+                <div class="container tab-pane active"><br>
+                    {{ macro.displayBlog(blogs)}}
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    
+       
+    
+
+{% endblock %}

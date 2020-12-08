@@ -1,0 +1,42 @@
+
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content%}
+<div class="container-fluid">
+
+    <div>
+        <h1>Write a  Comment</h1>
+              
+        <div>
+            {{ wtf.quick_form(form)}}
+        </div>
+        <br>
+        <br>
+        
+        {% if comments %}
+
+        <div class="col-md-6">
+            {% for comment in comments %} <div class="card">
+                <div class="card p-3">
+                    <p class="card-title" style="font-family: 'Bad Script', cursive; margin-left: 350px;">
+                        {{ comment.comment | capitalize }}
+                    </p>
+
+                    <p>
+                    <ul> <span class="card-text"
+                            style="font-family: 'Courgette', cursive;font-weight: bold; font-size:16px;margin-left: 350px;">__{{ comment.user.username | capitalize}}</span>
+                    </ul>
+                    </p>
+                    <hr>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+        {% else %}
+        <p style="margin-left: 350px;"> No Comments Yet!</p>
+        {%endif%}
+    </div>
+</div>
+{% endblock %}

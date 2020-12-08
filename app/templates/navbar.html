@@ -1,0 +1,33 @@
+
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand " style="color: white; font-weight: bold;" href="{{url_for('main.index')}}">BLOG</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('main.new_blog')}}" style="margin-top:-0.10cm;font-size: 17px;"><span class="btn btn-success btn-sm" style="font-size: 15px;">Post free</span></a>
+                </li>
+                {% endif %}
+                {% if current_user.is_authenticated %}
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}" style="color: white; font-weight: bold;">{{current_user.username}}</a></li>
+                <li><a href="{{url_for('auth.logout')}}" style="color: white; "><i class="fas fa-sign-in-alt" style="color: white;background-color:#6FACD8;" ></i> Logout</a></li>
+                {% else %}
+                <li><a href="{{url_for('auth.login')}}" style="color: white;"><i class="fas fa-user-plus" style="color: white;background-color:#6FACD8;"></i> Sign-in</a></li>
+                {%endif%}
+                
+                
+            </ul>
+        </div>
+    </div>
+</nav>
