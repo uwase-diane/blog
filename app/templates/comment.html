@@ -3,10 +3,10 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content%}
-<div class="container-fluid">
+<div class="container-fluid" style="background-image: linear-gradient(rgba(240, 240, 240, 0.027),rgba(248, 248, 248, 0)),url('https://res.cloudinary.com/auca/image/upload/v1607429263/gifts_zk97eu.png');background-size: cover; height: 80vh; background-position: center;margin-top: -0.55cm;">
 
     <div>
-        <h1>Write a  Comment</h1>
+        <h1 style="font-weight: bold; color: white;">Write a  Comment</h1>
               
         <div>
             {{ wtf.quick_form(form)}}
@@ -19,13 +19,13 @@
         <div class="col-md-6">
             {% for comment in comments %} <div class="card">
                 <div class="card p-3">
-                    <p class="card-title" style="font-family: 'Bad Script', cursive; margin-left: 350px;">
+                    <p class="card-title" style="font-family: 'Bad Script', cursive; margin-left: 350px; color: white;">
                         {{ comment.comment | capitalize }}
                     </p>
 
                     <p>
                     <ul> <span class="card-text"
-                            style="font-family: 'Courgette', cursive;font-weight: bold; font-size:16px;margin-left: 350px;">__{{ comment.user.username | capitalize}}</span>
+                            style="font-family: 'Courgette', cursive;font-weight: bold; font-size:16px;margin-left: 350px; color: white;">{{ comment.user.username | capitalize}}</span>
                     </ul>
                     </p>
                     <hr>
