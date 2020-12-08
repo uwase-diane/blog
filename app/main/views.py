@@ -52,10 +52,11 @@ def comment(blog_id):
     if form.validate_on_submit():
         comment = form.comment.data
         blog_id = blog_id
-        new_comment = Comment(comment = comment,blog_id=blog_id)
+        user_id = current_user._get_current_object().id
+        new_comment = Comment(comment = comment,blog_id=blog_id,user_id = user_id)
         new_comment.save_comments()
 
-        return redirect(url_for('.comment',blog_id = blog_id))
+        return redirect(url_for('.comment',blog_id = blog_id,user_id = user_id))
 
     return render_template('comment.html',form = form,blogs = blogs, comments = comments)
 
