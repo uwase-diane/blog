@@ -2,16 +2,20 @@
 {% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
-<div class="container">
-<div class="row">
-<div class="col-md-2"> </div>
-<div class="col-md-8">
 
-{{wtf.quick_form(registration_form)}}
-
-</div>
-<div class="col-md-2"></div>
-</div>
-</div>
-
+    <div class="container-fluid" style="background-image:url('https://res.cloudinary.com/auca/image/upload/v1607429825/xmastree_koxyqa.png');background-size: cover; height: 90vh; background-position: center;margin-top: -0.55cm;">
+        <div>
+            <h1 style="text-align: center;font-weight: bold;color: white;margin-top: 70px;">Register with Your Credentials</h1>
+            <div class="row" style="color: white;">
+                <div class="col-md-2"> </div>
+                <div class="col-md-8">
+    
+                    {{wtf.quick_form(registration_form)}}
+    
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+        </div>
+    </div>
+    
 {% endblock%}
