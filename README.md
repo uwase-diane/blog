@@ -1,9 +1,8 @@
 # Application name
 
-# Minute-pitch
+# Blog
 
-its a web app where people will be able to post their pitch
-
+this is a personal blogging website where you can create and share your opinions
 # Author
 
 Uwase Diane
@@ -17,18 +16,23 @@ an application that allows users to use that one minute wisely. The users will s
 
 Clone this repository and navigate to the folder. Run the following commands to allow functionality of the app:-
 
-* sudo add-apt-repository ppa:jonathonf/python-3.6
-* sudo apt-get update
-* sudo apt-get install python3.6
-* sudo apt-get install python3-pip
-* sudo apt-get install python3.6-venv
-* python3.6 -m venv virtual
-* source virtual/bin/activate
-* pip install -r requirements.txt
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+sudo apt-get install python3.6-venv
+python3.6 -m venv virtual
+source virtual/bin/activate
+pip install -r requirements.txt
 
+# User stories
+As a user, I would like to view the blog posts on the site
+As a user, I would like to comment on blog posts
+As a user, I would like to view the most recent posts
+As a user, I would like to an email alert when a new post is made by joining a subscription.
+As a user, I would like to see random quotes on the site
 
 ## Technologies Used
-
 Python 3.6.5
 Bootstrap
 Flask Framework
@@ -40,7 +44,7 @@ email: diane.uwase13@gmail.com
 
 ## License
 
-Copyright  2020 Uwase Diane
+Copyright  Dec 2020 Uwase Diane
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
